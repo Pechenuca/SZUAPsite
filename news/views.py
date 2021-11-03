@@ -9,6 +9,3 @@ class PostList(generic.ListView):
     serializer_class = PostSerializer
 
 
-class PostDetail(generic.DetailView):
-    model = Post
-    template_name = 'post_detail.html'

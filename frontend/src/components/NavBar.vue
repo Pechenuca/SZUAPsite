@@ -4,10 +4,10 @@
             <img :src="logo">
             <div class="links">
                 <ul>
-                    <li><a href="#about">О нас</a></li>
-                    <li><a href="#services">Услуги</a></li>
-                    <li><a href="#contacts">Контакты</a></li>
-                    <li><a href="#news">Новости</a></li>
+                    <li><a>О нас</a></li>
+                    <li><a>Услуги</a></li>
+                    <li><a>Контакты</a></li>
+                    <li><a>Новости</a></li>
                     <li><SearchBox label="Найти"/></li>
                 </ul>
             </div>

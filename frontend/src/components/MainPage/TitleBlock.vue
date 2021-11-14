@@ -1,12 +1,12 @@
 <template>
     <div class="title-block">
       <img class="title-block-item title-block-icon" :src="icon">
-      <h1 :href="hrefHoock" class="title-block-item">{{label}}</h1>
+      <h1 class="title-block-item">{{label}}</h1>
     </div>
 </template>
 
 <script>
-  import icon from "@/assets/umbrella-solid 2.svg"
+  import icon from "@/assets/umbrella-solid.svg"
   export default {
     name: "TitleBlock",
     props: {
@@ -14,15 +14,10 @@
         type: String,
         default: ""
       },
-      pHref: {
-        type: String,
-        default: null
-      }
     },
-    setup(props) {
+    setup() {
       return {
         icon,
-        hrefHoock: "#" + props.pHref
       }
     },
   }
@@ -40,5 +35,7 @@
   }
   .title-block-icon {
      margin-right: 20px;
+     width: 27px;
+     height: 28px;
   }
 </style>

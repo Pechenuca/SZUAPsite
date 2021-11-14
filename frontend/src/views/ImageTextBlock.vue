@@ -1,6 +1,6 @@
 <template>
     <div class="about-block-wrapper">
-      <TitleBlock label="ООО “СЗУАП-АУДИТ”" :pHref="href" />
+      <TitleBlock label="ООО “СЗУАП-АУДИТ”" />
       <div class="about-block" v-if="isImageAlignLeft">
         <div class="image-with-block">
           <div class="green-block">

@@ -15,16 +15,16 @@
       },
       lable: {
         type: String,
-        default: null
-      }
+        default: ""
+      },
     },
-    
   }
 </script>
 
 <style>
   .service-block {
-    margin: 0px 34px;
+    /* margin: 0px 34px; */
+    cursor: pointer;
     min-width: 199px;
     min-height: 195px;
     background: #FFFFFF;

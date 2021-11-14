@@ -36,10 +36,6 @@
         type: Boolean,
         default: null
       },
-      href: {
-        type: String,
-        default: null
-      }
     },
     setup() {
       return {

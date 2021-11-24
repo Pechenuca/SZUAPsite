@@ -27,11 +27,13 @@
   }
   ::placeholder {
     color: black;
+    font-family: AlkesLight;
     font-style: normal;
     font-size: 24px;
     line-height: 35px;
   }
   .search-input:focus {
+    font-family: AlkesLight;
     font-style: normal;
     font-size: 24px;
     line-height: 35px;

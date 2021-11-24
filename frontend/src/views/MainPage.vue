@@ -2,17 +2,20 @@
     <div class="main-block">
         <ImageTextBlock :description="aboutBlockDescription" :isImageAlignLeft="true" />
         <Services />
+        <News />
     </div>
 </template>
 
 <script>
   import ImageTextBlock from "@/views/ImageTextBlock";
   import Services from "@/views/Services";
+  import News from "@/views/News";
   export default {
     name: "MainPage",
     components: {
       ImageTextBlock,
-      Services
+      Services,
+      News
     },
     setup() {
       return {

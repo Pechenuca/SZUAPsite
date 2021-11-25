@@ -1,19 +1,10 @@
 <template>
-  <div v-if="isNews">
-    <TitleBlock label="Новости" />
+  <div>
+    <TitleBlock label="Новости" v-if="isNews" />
+    <TitleBlock label="Аудиторские отчеты" v-else />
     <div class="news-short-block-wrapper">
         <NewsShort 
-          v-for="(item) in newsShortData" :key="item.label"
-          :label="item.label"
-          :description="item.description"
-          :img="item.image"
-        />
-    </div>
-  </div>
-  <div v-else>
-    <TitleBlock label="Аудиторские отчеты" />
-    <div class="news-short-block-wrapper">
-        <NewsShort 
+          class="news-short-item"
           v-for="(item) in newsShortData" :key="item.label"
           :label="item.label"
           :description="item.description"
@@ -54,6 +45,21 @@
             image: imgPreview,
             label: "Hello world",
             description: "test test test test test test test test test test test test test test test test "
+          },
+          {
+            image: imgPreview,
+            label: "Hello world",
+            description: "test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test testtest test test test test test test test test test test test test test test testtest test test test test test test test test test test test test test test test"
+          },
+          {
+            image: imgPreview,
+            label: "Hello world",
+            description: "test test test test test test test test test test test test test test test test "
+          },
+          {
+            image: imgPreview,
+            label: "Hello world",
+            description: "test test test test test test test test test test test test test test test test "
           }
         ]
       }
@@ -78,5 +84,9 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  .news-short-item {
+    margin-top: 15px;
   }
 </style>

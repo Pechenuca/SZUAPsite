@@ -12,11 +12,11 @@
           />
       </div>
       <Modal
-        @child-hide-event="closeModal" 
+        @child-hide-event="closeModal"
         class="wrapper-element"
         :isHidden="isModalHidden"
         :title="modalTitle"
-        :description="modalDescription" 
+        :description="modalDescription"
       />
     </div>
   </div>
@@ -71,9 +71,9 @@
     },
     methods: {
       toggleModal(index) {
-          this.isModalHidden = false
-          this.modalTitle = this.servicesData[index].lable
-          this.modalDescription = this.servicesData[index].description
+        this.isModalHidden = false
+        this.modalTitle = this.servicesData[index].lable
+        this.modalDescription = this.servicesData[index].description
       },
       closeModal() {
         this.isModalHidden = true

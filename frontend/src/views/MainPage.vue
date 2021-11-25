@@ -15,6 +15,9 @@
           id="audit"
           :isNews="false" 
         />
+        <Contacts 
+          id="contacts"
+        />
     </div>
 </template>
 
@@ -22,13 +25,16 @@
   import ImageTextBlock from "@/views/ImageTextBlock"
   import Services from "@/views/Services"
   import News from "@/views/News"
+  import Contacts from "@/views/Contacts"
   import smoothscroll from 'smoothscroll-polyfill'
+
   export default {
     name: "MainPage",
     components: {
       ImageTextBlock,
       Services,
-      News
+      News,
+      Contacts
     },
     setup() {
       smoothscroll.polyfill()
@@ -63,5 +69,8 @@
     }
     .main-block div:nth-child(1) {
       margin-top: 0px;
+    }
+    .main-block div:last-child {
+      margin-bottom: 200px;
     }
 </style>

@@ -1,6 +1,6 @@
 <template>
   <div class="search-box">
-    <input class="search-input" type="text" />
+    <input class="search-input" type="text" placeholder="Поиск" />
     <img :src="search" />
   </div>
 </template>
@@ -23,9 +23,11 @@
     border-radius: 5px;
     width: 130px;
     height: 35px;
+    font-family: AlkesLight;
     font-style: normal;
     font-size: 24px;
     line-height: 35px;
+    color: black;
   }
   ::placeholder {
     color: black;

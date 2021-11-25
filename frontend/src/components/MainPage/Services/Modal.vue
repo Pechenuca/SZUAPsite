@@ -1,5 +1,5 @@
 <template>
-  <div class="service-modal" v-if="!isHidden">
+  <div id="service-modal-window" class="service-modal" v-if="!isHidden">
     <div class="service-modal-title">
       <h3>{{title}}</h3>
       <img :src="close" v-on:click="closeModal">
@@ -36,7 +36,8 @@
       closeModal() {
         this.$emit('child-hide-event')
       },
-    }
+    },
+
   }
 </script>
 
@@ -51,7 +52,9 @@
     }
   
   .service-modal .service-modal-title, p {
-    margin: 20px;
+    margin-right: 20px;
+    margin-left: 20px;
+    margin-top: 15px;
   }
   
   .service-modal-title {

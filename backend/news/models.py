@@ -19,6 +19,7 @@ class Post(models.Model):
     #slug = models.SlugField(max_length=200, unique=True)
     updated_on = models.DateTimeField(auto_now=True, verbose_name="Дата обнавления")
     content = HTMLField(verbose_name="Описание")
+    image = models.ImageField(upload_to='services_section', verbose_name="Изображение")
     created_on = models.DateTimeField(auto_now_add=True, verbose_name="Дата создания")
     status = models.IntegerField(choices=STATUS, default=0, verbose_name="Статус Поста")
     post_type = models.IntegerField(choices=TYPE, default=1, verbose_name="Тип поста")

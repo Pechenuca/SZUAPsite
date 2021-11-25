@@ -1,11 +1,9 @@
-from django.views import generic
-
+from rest_framework import viewsets
 from news.models import Post
 from news.serializers import PostSerializer
 
-
-class PostList(generic.ListView):
-    queryset = Post.objects.filter(status=1).order_by('created_on')
+class PostViewSet(viewsets.ModelViewSet):
+    queryset = Post.objects.all()
     serializer_class = PostSerializer
 
 

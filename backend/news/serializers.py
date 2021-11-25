@@ -1,7 +1,5 @@
 from rest_framework import serializers
-
 from news.models import Post
-
 
 class PostSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from news.models import Post
+from news.models import *
 
 
 class PostAdmin(admin.ModelAdmin):
@@ -8,4 +8,6 @@ class PostAdmin(admin.ModelAdmin):
     search_fields = ['title', 'content']
 
 
-admin.site.register(Post, PostAdmin)
+admin.site.register(Service)
+admin.site.register(Post)
+admin.site.register(HelloPage)

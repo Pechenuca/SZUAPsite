@@ -1,4 +1,5 @@
 from django.db import models
+from tinymce.models import HTMLField
 from django.core.exceptions import ValidationError
 
 
@@ -17,7 +18,7 @@ class Post(models.Model):
     title = models.CharField(max_length=200, verbose_name="Заголовок")
     #slug = models.SlugField(max_length=200, unique=True)
     updated_on = models.DateTimeField(auto_now=True, verbose_name="Дата обнавления")
-    content = models.TextField()
+    content = HTMLField(verbose_name="Описание")
     created_on = models.DateTimeField(auto_now_add=True, verbose_name="Дата создания")
     status = models.IntegerField(choices=STATUS, default=0, verbose_name="Статус Поста")
     post_type = models.IntegerField(choices=TYPE, default=1, verbose_name="Тип поста")
@@ -36,7 +37,7 @@ class HelloPage(models.Model):
         (1, 'Справа')
     )
 
-    description = models.CharField(max_length=170, verbose_name="Описание")
+    description = HTMLField(max_length=170, verbose_name="Описание")
     image = models.ImageField(upload_to='hello_section', verbose_name="Изображение")
     imageAligin = models.FloatField(choices=IMAGE_ALIGIN, default=0, verbose_name="Расположение картинки")
 
@@ -49,11 +50,17 @@ class HelloPage(models.Model):
         verbose_name = "Блок: ООО “СЗУАП-АУДИТ”"
         verbose_name_plural = "Блоки: ООО “СЗУАП-АУДИТ”"
 
+    def __str__(self):
+        return f"ООО “СЗУАП-АУДИТ”"
+
 class Service(models.Model):
     label = models.CharField(max_length=170, verbose_name="Заголовок")
     image = models.ImageField(upload_to='services_section', verbose_name="Изображение")
-    description = models.CharField(max_length=600, verbose_name="Описание")
+    description = HTMLField(max_length=600, verbose_name="Описание")
     
     class Meta:
         verbose_name = "Блок: Услуги"
         verbose_name_plural = "Блоки: Услуги"
+    
+    def __str__(self):
+        return f"{self.label}"

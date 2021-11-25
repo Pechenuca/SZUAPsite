@@ -19,9 +19,10 @@
 </template>
 
 <script>
-  import ImageTextBlock from "@/views/ImageTextBlock";
-  import Services from "@/views/Services";
-  import News from "@/views/News";
+  import ImageTextBlock from "@/views/ImageTextBlock"
+  import Services from "@/views/Services"
+  import News from "@/views/News"
+  import smoothscroll from 'smoothscroll-polyfill'
   export default {
     name: "MainPage",
     components: {
@@ -30,6 +31,7 @@
       News
     },
     setup() {
+      smoothscroll.polyfill()
       return {
         aboutBlockDescription: "В нашей компании только профессионалы, разделяющие высокие требования к качеству результатов нашей работы для Вашего бизнеса"
       }
@@ -42,7 +44,7 @@
     watch: {
       currentDiv (newDiv) {
         if (document.getElementById(newDiv) != null) {
-          document.getElementById(newDiv).scrollIntoView()
+          document.getElementById(newDiv).scrollIntoView({ behavior: 'smooth' })
           this.$store.commit("currentDiv", '')  
         }
       }

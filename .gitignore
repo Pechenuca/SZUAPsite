@@ -1,6 +1,8 @@
 #python
 __pycache__
 db.sqlite3
+services_section
+hello_section
 
 #js
 .DS_Store

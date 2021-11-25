@@ -61,7 +61,7 @@
     created() {
         this.newsShortData.forEach(el => {
           if (el.description.length >= 250) {
-            let slicedDescription = el.description.slice(0, 250) + '...'
+            let slicedDescription = el.description.slice(0, 250) + ' ...'
             el.description = slicedDescription
           }
         })

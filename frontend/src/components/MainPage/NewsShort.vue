@@ -35,6 +35,7 @@
     background: #FFFFFF;
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
     border-radius: 15px;
+    cursor: pointer;
   }
 
   .news-short img {

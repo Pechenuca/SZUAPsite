@@ -40,9 +40,7 @@
       }
     },
     watch: {
-      currentDiv (newDiv, oldDiv) {
-        console.log(`Old div ${oldDiv}`)
-        console.log(`Current div ${newDiv}`)
+      currentDiv (newDiv) {
         if (document.getElementById(newDiv) != null) {
           document.getElementById(newDiv).scrollIntoView()
           this.$store.commit("currentDiv", '')  

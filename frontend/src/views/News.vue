@@ -1,6 +1,17 @@
 <template>
-  <div>
+  <div v-if="isNews">
     <TitleBlock label="Новости" />
+    <div class="news-short-block-wrapper">
+        <NewsShort 
+          v-for="(item) in newsShortData" :key="item.label"
+          :label="item.label"
+          :description="item.description"
+          :img="item.image"
+        />
+    </div>
+  </div>
+  <div v-else>
+    <TitleBlock label="Аудиторские отчеты" />
     <div class="news-short-block-wrapper">
         <NewsShort 
           v-for="(item) in newsShortData" :key="item.label"
@@ -20,6 +31,12 @@
   export default {
     name: "News",
     components: {TitleBlock, NewsShort},
+    props: {
+      isNews: {
+        type: Boolean,
+        default: true
+      }
+    },
     setup() {
       return {
         newsShortData: [

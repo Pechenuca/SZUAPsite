@@ -4,11 +4,12 @@
             <img :src="logo">
             <div class="links">
                 <ul>
-                    <li><a>О нас</a></li>
-                    <li><a>Услуги</a></li>
-                    <li><a>Контакты</a></li>
-                    <li><a>Новости</a></li>
-                    <li><SearchBox label="Найти"/></li>
+                    <li><a v-on:click="updateSelectedDivId('about')" >О нас</a></li>
+                    <li><a v-on:click="updateSelectedDivId('services')" >Услуги</a></li>
+                    <li><a v-on:click="updateSelectedDivId('news')" >Новости</a></li>
+                    <li><a v-on:click="updateSelectedDivId('audit')" >Аудит. отчеты</a></li>
+                    <li><a v-on:click="updateSelectedDivId('contacts')" >Контакты</a></li>
+                    <li><SearchBox /></li>
                 </ul>
             </div>
         </div>
@@ -23,8 +24,13 @@
     components: {SearchBox},
     setup() {
       return {
-        logo
+        logo,
       };
+    },
+    methods: {
+        updateSelectedDivId(id) {
+          this.$store.commit("currentDiv", id)  
+      }
     }
   }
 </script>
@@ -75,6 +81,7 @@
         font-size: 24px;
         line-height: 41px;
         text-align: left;
+        cursor: pointer;
     }
 
     .links li > a {

@@ -1,15 +1,17 @@
 <template>
-    <input class="search-input" type="text" :placeholder="label" />
+  <div class="search-box">
+    <input class="search-input" type="text" />
+    <img :src="search" />
+  </div>
 </template>
 
 <script>
-
+  import search from "@/assets/search.svg"
   export default {
     name: "SearchBox",
-    props: {
-      label: {
-        type: String,
-        default: ''
+    setup() {
+      return {
+        search
       }
     }
   }
@@ -37,5 +39,8 @@
     font-style: normal;
     font-size: 24px;
     line-height: 35px;
+  }
+  .search-box img {
+    margin-left: 20px;
   }
 </style>

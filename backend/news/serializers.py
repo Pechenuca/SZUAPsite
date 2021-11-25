@@ -10,6 +10,7 @@ class PostSerializer(serializers.HyperlinkedModelSerializer):
             'content', 
             'created_on', 
             'status',
+            'image',
             'post_type'
         ]
 

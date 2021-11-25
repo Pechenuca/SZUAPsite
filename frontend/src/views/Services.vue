@@ -4,11 +4,11 @@
     <div class="services-block-wrapper">
       <div class="services-block-shortblocks wrapper-element">
           <ServiceBlock 
-            v-for="(item, index) in servicesData" :key="item.lable"
+            v-for="(item, index) in servicesData[0]" :key="item.label"
             v-on:click="toggleModal(index)"
             :id="'serviceBlockId' + index"
-            :lable="item.lable" 
-            :icon="item.img" 
+            :label="item.label" 
+            :icon="item.image" 
           />
       </div>
       <Modal
@@ -23,63 +23,46 @@
 </template>
 
 <script>
-  import { ref } from 'vue'
+  import { ref, onBeforeUpdate  } from 'vue'
   import TitleBlock from "@/components/MainPage/TitleBlock.vue";
   import ServiceBlock from "@/components/MainPage/Services/ServiceBlock.vue"
   import Modal from "@/components/MainPage/Services/Modal.vue"
-  
-  import audit from "@/assets/services/audit.png"
-  import sud from "@/assets/services/sud.png"
-  import tax from "@/assets/services/tax.png"
-  import ur_cons from "@/assets/services/ur_cons.png"
 
   export default {
     name: "Services",
     components: {TitleBlock, ServiceBlock, Modal},
-    setup() {
+    props: {
+      servicesDataProp: {
+        type: Array,
+      }
+    },
+    setup(props) {
       const isModalHidden = ref(true)
       const modalTitle = ref('')
       const modalDescription = ref('')
+      const servicesData = ref([])
       
+      onBeforeUpdate(() => {
+        servicesData.value = [props.servicesDataProp]
+      })
+
       return {
         isModalHidden,
         modalTitle,
         modalDescription,
-        servicesData: [
-          {
-            lable: "Аудит отчетности РСБУ",
-            description: "Аудит отчетности РСБУ description. Аудит отчетности РСБУ description. Аудит отчетности РСБУ description. Аудит отчетности РСБУ description.",
-            img: audit
-          },
-          {
-            lable: "Налоговый консалтинг",
-            description: "Налоговый консалтинг description. Налоговый консалтинг description. Налоговый консалтинг description. Налоговый консалтинг description.",
-            img: tax
-          },
-          {
-            lable: "Судебные споры",
-            description: "Судебные споры description. Налоговый консалтинг description. Налоговый консалтинг description. Налоговый консалтинг description.",
-            img: sud
-          },
-          {
-            lable: "Юрилический консалтинг",
-            description: "Юрилический консалтинг description. Налоговый консалтинг description. Налоговый консалтинг description. Налоговый консалтинг description.",
-            img: ur_cons
-          } 
-        ]
+        servicesData
       }
     },
     methods: {
       toggleModal(index) {
         this.isModalHidden = false
-        this.modalTitle = this.servicesData[index].lable
-        this.modalDescription = this.servicesData[index].description
+        this.modalTitle = this.servicesData[0][index].label
+        this.modalDescription = this.servicesData[0][index].description
       },
       closeModal() {
         this.isModalHidden = true
-      }
-    }
-    
+      },
+    },
   }
 </script>
 

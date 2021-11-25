@@ -14,15 +14,12 @@
     props: {
       img: {
         type: String,
-        default: ''
       },
       label: {
         type: String,
-        default: ''
       },
       description: {
         type: String,
-        default: '',
       }
     }
   }
@@ -57,5 +54,6 @@
   .news-short p {
     font-size: 18px;
     line-height: 26px;
+    word-break: break-all;
   }
 </style>

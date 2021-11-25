@@ -4,16 +4,16 @@
       <div class="about-block" v-if="isImageAlignLeft">
         <div class="image-with-block">
           <div class="green-block">
-            <img class="about-image" :src="umbrella" alt="green-umbrella">
+            <img class="about-image" :src="image" alt="green-umbrella">
           </div>
         </div>
-        <p class="about-description">{{description}}</p>
+        <div v-html="description"></div>
       </div>
       <div class="about-block" v-else>
-        <p class="about-description">{{description}}</p>
+        <div v-html="description"></div>
         <div class="image-with-block">
           <div class="green-block">
-            <img class="about-image" :src="umbrella" alt="green-umbrella">
+            <img class="about-image" :src="image" alt="green-umbrella">
           </div>
         </div>
       </div>
@@ -21,7 +21,6 @@
 </template>
 
 <script>
-  import umbrella from "@/assets/umbrella.png";
   import TitleBlock from "@/components/MainPage/TitleBlock.vue";
   export default {
     name: "ImageTextBlock",
@@ -29,17 +28,20 @@
     props: {
       description: {
         type: String,
-        default: "",
+        default: '',
         required: true
       },
       isImageAlignLeft: {
         type: Boolean,
         default: null
       },
+      image: {
+        type: String,
+        default: ''
+      }
     },
     setup() {
       return {
-        umbrella
       }
     }
   }
@@ -73,9 +75,9 @@
     border-radius: 15px;
   }
 
-  .about-description {
+  .about-block p {
     max-width: 650px;
-
+    word-break: break-all;
     font-style: normal;
     font-weight: normal;
     font-size: 28px;

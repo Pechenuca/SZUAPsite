@@ -4,7 +4,7 @@
       <h3>{{title}}</h3>
       <img :src="close" v-on:click="closeModal">
     </div>
-    <p>{{description}}</p>
+    <div v-html="description"></div>
   </div>
 </template>
 
@@ -50,6 +50,10 @@
       justify-content: flex-start;
       flex-direction: column;
     }
+
+  .service-modal p {
+    word-break: break-all;
+  }
   
   .service-modal .service-modal-title, p {
     margin-right: 20px;

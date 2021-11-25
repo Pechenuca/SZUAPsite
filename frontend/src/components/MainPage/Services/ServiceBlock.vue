@@ -1,7 +1,7 @@
 <template>
   <div class="service-block">
     <img :src="icon"/>
-    <p>{{lable}}</p>
+    <p>{{label}}</p>
   </div>
 </template>
 
@@ -13,7 +13,7 @@
         type: String,
         default: ""
       },
-      lable: {
+      label: {
         type: String,
         default: ""
       },

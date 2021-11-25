@@ -5,9 +5,9 @@
     <div class="news-short-block-wrapper">
         <NewsShort 
           class="news-short-item"
-          v-for="(item) in newsShortData" :key="item.label"
-          :label="item.label"
-          :description="item.description"
+          v-for="(item) in postData[0]" :key="item.title"
+          :label="item.title"
+          :description="item.content"
           :img="item.image"
         />
     </div>
@@ -15,64 +15,32 @@
 </template>
 
 <script>
+  import { ref, onBeforeUpdate } from 'vue'
   import TitleBlock from "@/components/MainPage/TitleBlock.vue"
   import NewsShort from "@/components/MainPage/NewsShort.vue"
-  import imgPreview from "@/assets/testNewsShortImg.jpg"
 
   export default {
     name: "News",
     components: {TitleBlock, NewsShort},
     props: {
+      postDataProp: {
+        type: Array,
+      },
       isNews: {
         type: Boolean,
         default: true
       }
     },
-    setup() {
+    setup(props) {
+      const postData = ref([])
+
+      onBeforeUpdate(() => {
+        postData.value = [props.postDataProp]
+      })
       return {
-        newsShortData: [
-          {
-            image: imgPreview,
-            label: "Hello world",
-            description: "test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test testtest test test test test test test test test test test test test test test testtest test test test test test test test test test test test test test test test"
-          },
-          {
-            image: imgPreview,
-            label: "Hello world",
-            description: "test test test test test test test test test test test test test test test test "
-          },
-          {
-            image: imgPreview,
-            label: "Hello world",
-            description: "test test test test test test test test test test test test test test test test "
-          },
-          {
-            image: imgPreview,
-            label: "Hello world",
-            description: "test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test testtest test test test test test test test test test test test test test test testtest test test test test test test test test test test test test test test test"
-          },
-          {
-            image: imgPreview,
-            label: "Hello world",
-            description: "test test test test test test test test test test test test test test test test "
-          },
-          {
-            image: imgPreview,
-            label: "Hello world",
-            description: "test test test test test test test test test test test test test test test test "
-          }
-        ]
+        postData,
       }
-    },
-    created() {
-        this.newsShortData.forEach(el => {
-          if (el.description.length >= 250) {
-            let slicedDescription = el.description.slice(0, 250) + ' ...'
-            el.description = slicedDescription
-          }
-        })
-      }
-    
+    } 
   }
 </script>
 

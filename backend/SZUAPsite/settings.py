@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-)ccag&k$)*ny6@m+_nn_h)%^2e^^x75d)5q70ly!-ycg!scyb&
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -50,6 +50,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'SZUAPsite.urls'
@@ -76,6 +77,10 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
     ]
 }
+
+CORS_ALLOWED_ORIGINS = [
+        'http://localhost:8080/',
+    ]
 
 WSGI_APPLICATION = 'SZUAPsite.wsgi.application'
 

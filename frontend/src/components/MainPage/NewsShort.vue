@@ -56,4 +56,14 @@
     line-height: 26px;
     word-break: break-all;
   }
+  @media (max-width: 626px) {
+    .news-short {
+      margin: auto;
+      width: 90%;
+    }
+
+    .news-short img {
+      width: 100%;
+    }
+  }
 </style>

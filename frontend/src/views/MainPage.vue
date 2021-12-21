@@ -150,4 +150,12 @@
     .main-block div:last-child {
       margin-bottom: 200px;
     }
+    @media (max-width: 1191px) {
+      .main-block {
+        display: block;
+      }
+      .main-block div:last-child  {
+        margin-bottom: 0px;
+      }
+    }
 </style>

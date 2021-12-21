@@ -1,7 +1,7 @@
 <template>
   <div>
-    <TitleBlock label="Новости" v-if="isNews" />
-    <TitleBlock label="Аудиторские отчеты" v-else />
+    <TitleBlock label="Последние Новости" v-if="isNews" />
+    <TitleBlock label="Последние Аудиторские Отчеты" v-else />
     <div class="news-short-block-wrapper">
         <NewsShort 
           class="news-short-item"
@@ -56,5 +56,11 @@
   }
   .news-short-item {
     margin-top: 15px;
+  }
+  @media (max-width: 576px) {
+    .news-short-block-wrapper {
+      flex-direction: column;
+      justify-content: center;
+    }
   }
 </style>

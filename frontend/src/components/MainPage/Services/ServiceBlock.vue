@@ -44,4 +44,12 @@
   .service-block p {
     text-align: center;
   }
+
+  @media (max-width: 915px) {
+    .service-block {
+        margin: 5px;
+        width: 199px;
+        height: 195px;
+    }
+  }
 </style>

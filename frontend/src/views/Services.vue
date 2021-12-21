@@ -85,4 +85,16 @@
   .wrapper-element {
     margin-top: 25px;
   }
+
+  @media (max-width: 915px) {
+    .services-block-shortblocks {
+        flex-direction: initial;
+        justify-content: center;
+        flex-wrap: wrap;
+        
+    }
+    .wrapper-element:first-child {
+      margin-top: 0px;
+    }
+  }
 </style>

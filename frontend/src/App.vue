@@ -43,4 +43,10 @@
     font-family: AlkesLight
   }
 
+  @media (max-width: 1191px) {
+      .wrapper {
+        display: block;
+      }
+    }
+
 </style>

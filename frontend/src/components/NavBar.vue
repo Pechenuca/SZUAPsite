@@ -1,19 +1,22 @@
 <template>
-    <div class="navbar">
-        <div class="navbar-elments">
-            <img :src="logo">
-            <div class="links">
-                <ul>
-                    <li><a v-on:click="updateSelectedDivId('about')" >О нас</a></li>
-                    <li><a v-on:click="updateSelectedDivId('services')" >Услуги</a></li>
-                    <li><a v-on:click="updateSelectedDivId('news')" >Новости</a></li>
-                    <li><a v-on:click="updateSelectedDivId('audit')" >Аудит. отчеты</a></li>
-                    <li><a v-on:click="updateSelectedDivId('contacts')" >Контакты</a></li>
-                    <li><SearchBox /></li>
-                </ul>
-            </div>
-        </div>
+  <div class="navbar">
+    <div class="navbar-elments">
+      <img :src="logo">
+      <div class="links">
+        <ul>
+          <li v-on:click="updateSelectedDivId('about')" ><a>О нас</a></li>
+          <li v-on:click="updateSelectedDivId('services')" ><a>Услуги</a></li>
+          <li v-on:click="updateSelectedDivId('news')"  ><a>Новости</a></li>
+          <li v-on:click="updateSelectedDivId('audit')" ><a>Аудиторские<br>Отчеты</a></li>
+          <li v-on:click="updateSelectedDivId('contacts')" ><a>Контакты</a></li>
+          <li><SearchBox /></li>
+        </ul>
+      </div>
     </div>
+    <div class="navbar-mobile">
+      <img :src="logo" class="navbar-image-mobile" >
+    </div>
+  </div>
 </template>
 
 <script>
@@ -87,5 +90,30 @@
     .links li > a {
         text-decoration: none;
         color: black;
+    }
+
+    .navbar-mobile {
+      display: none;
+    }
+
+    .navbar-component {
+      height: 100%;
+    }
+
+    @media (max-width: 1191px) {
+      .navbar {
+        display: block;
+        width: 100%;
+        height: 60px;
+      }
+      
+      .navbar-elments {
+        display: none;
+      }
+
+      .navbar-mobile {
+        display: block;
+      }
+
     }
 </style>

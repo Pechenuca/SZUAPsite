@@ -64,6 +64,7 @@
     z-index: 0;
     margin-left: -20px;
     margin-top: -20px;
+    border-radius: 15px;
   }
   
   .green-block {
@@ -82,5 +83,12 @@
     font-weight: normal;
     font-size: 28px;
     line-height: 35px;
+  }
+
+  @media (max-width: 915px) {
+    .about-block {
+        flex-direction: column;
+        justify-content: center;
+    }
   }
 </style>

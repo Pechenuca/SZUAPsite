@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'news.apps.NewsConfig',
     'rest_framework',
-    'tinymce'
+    'tinymce',
+    'django_cleanup.apps.CleanupConfig'
 ]
 
 MIDDLEWARE = [

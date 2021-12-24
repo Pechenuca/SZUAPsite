@@ -10,6 +10,10 @@
           :description="item.content"
           :img="item.image"
         />
+        <NewsShort 
+          class="news-short-item read-more"
+          label="Смотреть Всё"
+        />
     </div>
   </div>
 </template>
@@ -56,6 +60,12 @@
   }
   .news-short-item {
     margin-top: 15px;
+  }
+  .read-more {
+    height: 50px;
+  }
+  .read-more > div > h3 {
+    margin:auto;
   }
   @media (max-width: 576px) {
     .news-short-block-wrapper {

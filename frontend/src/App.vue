@@ -1,16 +1,15 @@
 <template>
     <div class="wrapper">
       <NavBar />
-      <MainPage />
+      <router-view />
     </div>
 </template>
 
 <script>
-  import MainPage from "@/views/MainPage.vue";
   import NavBar from "@/components/NavBar.vue";
 
   export default {
-    components: {NavBar, MainPage},
+    components: {NavBar},
   }
 
 </script>
@@ -22,6 +21,7 @@
     margin: 0;
     width: 100%;
     background: white;
+    overflow-x: hidden;
   }
 
   #app {

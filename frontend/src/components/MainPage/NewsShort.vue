@@ -1,9 +1,9 @@
 <template>
     <div class="news-short">
-      <img :src="img" />
+      <img v-if="img != null" :src="img" />
       <div class="news-text">
         <h3>{{label}}</h3>
-        <p>{{description}}</p>
+        <p v-if="description != null" >{{description}}</p>
       </div>
     </div>
 </template>

@@ -4,17 +4,35 @@
       <img :src="logo">
       <div class="links">
         <ul>
-          <li v-on:click="updateSelectedDivId('about')" ><a>О нас</a></li>
-          <li v-on:click="updateSelectedDivId('services')" ><a>Услуги</a></li>
-          <li v-on:click="updateSelectedDivId('news')"  ><a>Новости</a></li>
-          <li v-on:click="updateSelectedDivId('audit')" ><a>Аудиторские<br>Отчеты</a></li>
-          <li v-on:click="updateSelectedDivId('contacts')" ><a>Контакты</a></li>
+          
+          <li v-on:click="updateSelectedDivId('about')">
+            <router-link to="/">О нас</router-link>
+          </li>
+
+          <li v-on:click="updateSelectedDivId('services')">
+            <router-link to="/">Услуги</router-link>
+          </li>
+
+          <li v-on:click="updateSelectedDivId('news')">
+            <router-link to="/">Новости</router-link>
+          </li>
+          
+          <li v-on:click="updateSelectedDivId('audit')">
+            <router-link to="/">Аудиторские<br>Отчеты</router-link>
+          </li>
+          
+          <li v-on:click="updateSelectedDivId('contacts')">
+            <router-link to="/">Контакты</router-link>
+          </li>
+          
           <li><SearchBox /></li>
+        
         </ul>
       </div>
     </div>
     <div class="navbar-mobile">
       <img :src="logo" class="navbar-image-mobile" >
+      <h1>test</h1>
     </div>
   </div>
 </template>
@@ -112,7 +130,18 @@
       }
 
       .navbar-mobile {
-        display: block;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: row;
+        height: 100%;
+        width: 90%;
+        margin: auto;
+      }
+
+      .navbar-image-mobile {
+        width: 180px;
+        height: 35px;
       }
 
     }

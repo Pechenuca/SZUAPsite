@@ -83,31 +83,27 @@
             this.servicesData = data
           })
       },   
-      async getPostsData(url) {
-        fetch(`${url}news/`)
+      async getPostsData(url, content_type) {
+        fetch(`${url}${content_type}-short/`)
           .then((res) => {
             return res.json()
           })
           .then((data) => {
-            let audit = []
-            let news = []
+            let content = []
 
             data.forEach(el => {
-              if (el.status) {
                 el.content = el.content.replace(/<\/?[^>]+>/ig, " ")
                 if (el.content.length >= 200) {
                   let slicedDescription = el.content.slice(0, 200) + ' ...'
                   el.content = slicedDescription
                 }
-                if (el.post_type) {
-                  news.push(el)
-                } else {
-                  audit.push(el)
-                }
-              } 
+                content.push(el)
             })
-            this.auditData = audit
-            this.newsData = news
+            if (content_type == 'audit') {
+              this.auditData = content
+            } else {
+              this.newsData = content
+            }
           })
       },  
     },
@@ -129,7 +125,8 @@
 
       this.getHelloPageData(this.getBackendUrl())
       this.getServicesData(this.getBackendUrl())
-      this.getPostsData(this.getBackendUrl())
+      this.getPostsData(this.getBackendUrl(), 'audit')
+      this.getPostsData(this.getBackendUrl(), 'news')
     },
     
   }

@@ -33,7 +33,12 @@
       height: 100vh;
   }
 
-  
+  .main-block {
+    padding: 10px;
+    flex: 1 1 auto;
+    overflow: auto;
+  }
+
   @font-face {
     font-family: "AlkesLight";
     src: local("AlkesLight"), url(./fonts/AlkesLight.TTF) format("truetype");

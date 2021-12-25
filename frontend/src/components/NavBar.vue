@@ -1,7 +1,7 @@
 <template>
   <div class="navbar">
     <div class="navbar-elments">
-      <img :src="logo">
+      <img :src="logo" v-on:click="redirect">
       <div class="links">
         <ul>
           
@@ -31,7 +31,7 @@
       </div>
     </div>
     <div class="navbar-mobile">
-      <img :src="logo" class="navbar-image-mobile" >
+      <img :src="logo" class="navbar-image-mobile" v-on:click="redirect">
       <h1>test</h1>
     </div>
   </div>
@@ -51,6 +51,9 @@
     methods: {
         updateSelectedDivId(id) {
           this.$store.commit("currentDiv", id)  
+      },
+      redirect() {
+        this.$router.push('/');
       }
     }
   }
@@ -78,6 +81,7 @@
     .navbar-elments img {
         width: 180px;
         margin-bottom: 30px;
+        cursor: pointer;
     }
 
     .links {
@@ -142,6 +146,7 @@
       .navbar-image-mobile {
         width: 180px;
         height: 35px;
+        cursor: pointer;
       }
 
     }

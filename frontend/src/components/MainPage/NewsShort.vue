@@ -1,5 +1,5 @@
 <template>
-    <div class="news-short">
+    <div class="news-short" v-on:click="redirect">
       <img v-if="img != null" :src="img" />
       <div class="news-text">
         <h3>{{label}}</h3>
@@ -20,6 +20,26 @@
       },
       description: {
         type: String,
+      },
+      detail_id: {
+        type: String
+      },
+      type: Boolean
+    },
+    setup(props) {
+      const id = `/detail/${props.detail_id}`
+      return {
+        id
+      }
+    },
+    methods: {
+      redirect() {
+        if (this.description != null) {
+          this.$router.push(this.id)
+        } else {
+          let url = (this.type == true) ? '/content/0' : '/content/1'
+          this.$router.push(url)
+        }
       }
     }
   }
@@ -38,6 +58,7 @@
   .news-short img {
     width: 304px;
     height: 169px;
+    object-fit: cover;
     border-radius: 15px 15px 0px 0px;
   }
 

@@ -65,6 +65,7 @@
     margin-left: -20px;
     margin-top: -20px;
     border-radius: 15px;
+    object-fit: cover;
   }
   
   .green-block {

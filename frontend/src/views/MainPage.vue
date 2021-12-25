@@ -84,7 +84,7 @@
           })
       },   
       async getPostsData(url, content_type) {
-        fetch(`${url}${content_type}-short/`)
+        fetch(`${url}content/?post_type=${content_type}&short=1`)
           .then((res) => {
             return res.json()
           })
@@ -92,14 +92,14 @@
             let content = []
 
             data.forEach(el => {
-                el.content = el.content.replace(/<\/?[^>]+>/ig, " ")
+                el.content = el.content.replace(/<\/?[^>]+>/ig, " ").replace("&nbsp;", " ")
                 if (el.content.length >= 200) {
                   let slicedDescription = el.content.slice(0, 200) + ' ...'
                   el.content = slicedDescription
                 }
                 content.push(el)
             })
-            if (content_type == 'audit') {
+            if (content_type == 1) {
               this.auditData = content
             } else {
               this.newsData = content
@@ -125,19 +125,14 @@
 
       this.getHelloPageData(this.getBackendUrl())
       this.getServicesData(this.getBackendUrl())
-      this.getPostsData(this.getBackendUrl(), 'audit')
-      this.getPostsData(this.getBackendUrl(), 'news')
+      this.getPostsData(this.getBackendUrl(), 0)
+      this.getPostsData(this.getBackendUrl(), 1)
     },
     
   }
 </script>
 
 <style scoped>
-    .main-block {
-        padding: 10px;
-        flex: 1 1 auto;
-        overflow: auto;
-    }
     .main-block div:nth-child(n) {
       margin-top: 45px;
     }

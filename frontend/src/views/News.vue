@@ -1,16 +1,19 @@
 <template>
   <div>
-    <TitleBlock label="Последние Новости" v-if="isNews" />
-    <TitleBlock label="Последние Аудиторские Отчеты" v-else />
+    <TitleBlock label="Последние Новости" v-if="isNews && isShort" />
+    <TitleBlock label="Последние Аудиторские Отчеты" v-if="!isNews && isShort" />
     <div class="news-short-block-wrapper">
         <NewsShort 
           class="news-short-item"
           v-for="(item) in postData[0]" :key="item.title"
+          :detail_id="item.id"
           :label="item.title"
           :description="item.content"
           :img="item.image"
         />
-        <NewsShort 
+        <NewsShort
+          v-if="isShort"
+          :type="isNews"
           class="news-short-item read-more"
           label="Смотреть Всё"
         />
@@ -33,6 +36,10 @@
       isNews: {
         type: Boolean,
         default: true
+      },
+      isShort: {
+        type: Boolean,
+        default: true
       }
     },
     setup(props) {
@@ -44,7 +51,9 @@
       return {
         postData,
       }
-    } 
+    },
+    methods: {
+    }
   }
 </script>
 
@@ -58,6 +67,7 @@
     justify-content: space-between;
     flex-wrap: wrap;
   }
+  
   .news-short-item {
     margin-top: 15px;
   }

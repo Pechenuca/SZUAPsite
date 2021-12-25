@@ -10,12 +10,12 @@ const routes = [
     component: MainPage,
   },
   {
-    path: "/content:/type",
+    path: "/content/:type/:search?",
     name: "Content",
     component: Content,
   },
   {
-    path: "/detail/:search",
+    path: "/detail/:id",
     name: "NewsDetail",
     component: NewsDetail,
   }

@@ -1,17 +1,28 @@
 <template>
   <div class="search-box">
-    <input class="search-input" type="text" placeholder="Поиск" />
-    <img :src="search" />
+    <input class="search-input" type="text" placeholder="Поиск" v-model="searchString" />
+    <img :src="search" v-on:click="findPosts" />
   </div>
 </template>
 
 <script>
+  import { ref } from 'vue'
   import search from "@/assets/search.svg"
   export default {
     name: "SearchBox",
     setup() {
+      const searchString = ref('')
       return {
+        searchString,
         search
+      }
+    },
+    methods: {
+      findPosts() {
+        if (this.searchString != '') {
+          this.$router.push(`/content/3/${this.searchString}`)
+          this.searchString = ''
+        }
       }
     }
   }

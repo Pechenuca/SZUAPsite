@@ -3,7 +3,8 @@ import { createStore } from "vuex";
 export default createStore({
   state: {
     currentDivId: '',
-    backendBaseUrl: 'http://127.0.0.1:8000/api/v1/'
+    backendBaseUrlDev: 'http://127.0.0.1:8000/api/v1/',
+    backendBaseUrlProd: 'http://127.0.0.1/api/v1/'
   },
   mutations: {
     currentDiv(state, id) {
@@ -15,7 +16,7 @@ export default createStore({
       return state.currentDivId
     },
     baseUrl: state => {
-      return state.backendBaseUrl
+      return state.backendBaseUrlDev
     }
   }
 })

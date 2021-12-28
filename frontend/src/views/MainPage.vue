@@ -125,8 +125,8 @@
 
       this.getHelloPageData(this.getBackendUrl())
       this.getServicesData(this.getBackendUrl())
-      this.getPostsData(this.getBackendUrl(), 0)
       this.getPostsData(this.getBackendUrl(), 1)
+      this.getPostsData(this.getBackendUrl(), 0)
     },
     
   }

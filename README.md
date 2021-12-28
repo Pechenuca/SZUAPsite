@@ -42,7 +42,6 @@ yarn lint
 ```
 
 #### docker 
-todo: we need to write a sh file for frontend build!
 
 0. Uncomment
 frontend: 

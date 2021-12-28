@@ -18,7 +18,7 @@ services:
     volumes:
       - ./backend/:/usr/src/backend/
       - static_volume:/usr/src/backend/staticfiles
-      - media_volume:/usr/src/backend/mediafiles
+      - media_volume:/usr/src/backend/media
     expose:
       - 8000
     env_file:
@@ -34,7 +34,7 @@ services:
       - "80:80"
     volumes:
       - static_volume:/usr/src/backend/staticfiles
-      - media_volume:/usr/src/backend/mediafiles
+      - media_volume:/usr/src/backend/media
     depends_on:
       - backend
 

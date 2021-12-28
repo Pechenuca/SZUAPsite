@@ -66,6 +66,8 @@
     margin-top: -20px;
     border-radius: 15px;
     object-fit: cover;
+    max-width: 417px;
+    max-height: 351px;
   }
   
   .green-block {

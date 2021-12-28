@@ -3,6 +3,8 @@ __pycache__
 db.sqlite3
 services_section
 hello_section
+mediafiles
+staticfiles
 
 #js
 .DS_Store
@@ -10,7 +12,8 @@ node_modules
 dist
 
 # local env files
-.env.local
+.env
+.env.db
 .env.*.local
 
 # Log files
@@ -27,3 +30,5 @@ pnpm-debug.log*
 *.njsproj
 *.sln
 *.sw?
+
+data

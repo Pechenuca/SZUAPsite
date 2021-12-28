@@ -16,7 +16,8 @@ export default createStore({
       return state.currentDivId
     },
     baseUrl: state => {
-      return state.backendBaseUrlDev
+      //return state.backendBaseUrlDev
+      return state.backendBaseUrlProd
     }
   }
 })

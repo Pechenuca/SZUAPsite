@@ -12,45 +12,53 @@
     name: "YandexMapWrapper",
     props: {
       lon: {
-        type: Float32Array,
+        type: String,
         required: true
       },
       lat: {
-        type: Float32Array,
+        type: String,
         required: true
       },
       zoom: {
-        type: Int8Array,
+        type: String,
         required: true
       }
     },
     setup(props) {
       let latlon = ref([])
-      let zoom = ref([])
+      let rzoom = ref([])
       
       latlon.value = [
         props.lat, 
         props.lon
       ]
 
-      zoom.value = [props.zoom]
-
-
-      const ymaps = window.ymaps
+      rzoom.value = [props.zoom]
+      return {
+        latlon,
+        rzoom
+      }
+    },
+    methods: {
+      loadMap() {
+        const ymaps = window.ymaps
         ymaps.ready(() => {
-          console.log('Map loaded')
           new ymaps.Map('yandex-map', {
               center: [
-                latlon.value[0], 
-                latlon.value[1]
+                this.latlon[0], 
+                this.latlon[1]
               ],
-              zoom: zoom.value[0]
+              zoom: this.rzoom[0]
           }, {
               searchControlProvider: 'yandex#search'
           })
         })
-
-      return {
+      }
+    },
+    beforeMount () {
+      if(this.$store.getters.isMapLoaded == false) {
+       this.loadMap() 
+       this.$store.commit("currentIsMapLoaded", true)  
       }
     }
   }

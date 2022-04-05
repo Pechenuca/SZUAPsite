@@ -85,12 +85,12 @@ REST_FRAMEWORK = {
 
 CORS_ORIGIN_ALLOW_ALL = True
 
-# CORS_ALLOWED_ORIGINS = [
-#         'http://127.0.0.1:8080/',
-#         'http://127.0.0.1:3000/',
-#         'http://127.0.0.1',
-#         '*'
-#     ]
+CORS_ALLOWED_ORIGINS = [
+        'http://127.0.0.1:8080/',
+        'http://127.0.0.1:3000/',
+        'http://127.0.0.1',
+        '*'
+    ]
 
 WSGI_APPLICATION = 'SZUAPsite.wsgi.application'
 
@@ -109,9 +109,9 @@ WSGI_APPLICATION = 'SZUAPsite.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.environ.get('POSTGRES_NAME'),
-        'USER': os.environ.get('POSTGRES_USER'),
-        'PASSWORD': os.environ.get('POSTGRES_PASSWORD'),
+        'NAME': 'postgres',
+        'USER': 'postgres',
+        'PASSWORD': 'postgres',
         'HOST': 'db',
         'PORT': 5432,
     }

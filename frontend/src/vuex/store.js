@@ -20,8 +20,8 @@ export default createStore({
       return state.currentDivId
     },
     baseUrl: state => {
-      //return state.backendBaseUrlDev
-      return state.backendBaseUrlProd
+      return state.backendBaseUrlDev
+      //return state.backendBaseUrlProd
     },
     isMapLoaded: state => {
       return state.isMapLoaded

@@ -42,6 +42,9 @@ yarn lint
 ```
 
 #### docker 
+```
+sudo chmod +x /backend/entrypoint.sh
+```
 
 0. Uncomment
 frontend: 
@@ -92,3 +95,11 @@ docker-compose exec backend python manage.py collectstatic
 docker-compose exec backend python manage.py createsuperuser
 ```
 
+4. run
+```
+docker-compose --file docker-compose.prod.yml up
+```
+or
+```
+docker-compose --file docker-compose.dev.yml up
+```

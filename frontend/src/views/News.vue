@@ -1,7 +1,7 @@
 <template>
   <div>
     <TitleBlock label="Последние Новости" v-if="isNews && isShort" />
-    <TitleBlock label="Последние Аудиторские Отчеты" v-if="!isNews && isShort" />
+    <TitleBlock label="Раскрытие Информации" v-if="!isNews && isShort" />
     <div class="news-short-block-wrapper">
         <NewsShort 
           class="news-short-item"

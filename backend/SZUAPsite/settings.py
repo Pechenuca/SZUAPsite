@@ -25,7 +25,7 @@ MEDIA_URL = '/media/'
 # SECURITY WARNING: keep the secret key used in production secret!
 DOCKER = bool(os.environ.get('DOCKER', default=0))
 SECRET_KEY = os.environ.get("SECRET_KEY", "foo")
-DEBUG = int(os.environ.get("DEBUG", default=0))
+DEBUG = 1#int(os.environ.get("DEBUG", default=0))
 ALLOWED_HOSTS = ['*']
 
 

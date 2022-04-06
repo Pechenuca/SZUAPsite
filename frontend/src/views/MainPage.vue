@@ -1,10 +1,18 @@
 <template>
-    <div class="main-block">
+    <div class="main-block"> 
         <ImageTextBlock 
           :description="aboutBlockDescription" 
           :isImageAlignLeft="aboutBlockAlign"
           :image="aboutBlockImageUrl"
           id="about"
+        />
+        <AboutUs
+          id="aboutUs"
+          :aboutUsDataProp="aboutUsData"
+          />
+        <Buisness
+          id="buisness"
+          :buisnessDataProp="buisnessData"
         />
         <Services
           id="services"
@@ -22,6 +30,11 @@
         <Contacts 
           id="contacts"
         />
+        <Carier
+          id="carier"
+          :carierDataProp="carierData"
+        />
+        
     </div>
 </template>
 
@@ -32,6 +45,9 @@
   import News from "@/views/News"
   import Contacts from "@/views/Contacts"
   import smoothscroll from 'smoothscroll-polyfill'
+  import AboutUs from '@/components/MainPage/AboutUs.vue'
+  import Carier from '@/components/MainPage/Carier.vue'
+  import Buisness from '@/components/MainPage/Buisness.vue'
 
   export default {
     name: "MainPage",
@@ -39,7 +55,10 @@
       ImageTextBlock,
       Services,
       News,
-      Contacts
+      Contacts,
+      AboutUs,
+      Carier, 
+      Buisness
     },
     setup() {
       const aboutBlockAlign = ref(true)
@@ -48,6 +67,9 @@
       const servicesData = ref([])
       const newsData = ref([])
       const auditData = ref([])
+      const carierData = ref([])
+      const aboutUsData = ref([])
+      const buisnessData = ref([])
       
       return {
         aboutBlockAlign,
@@ -55,7 +77,10 @@
         aboutBlockDescription,
         servicesData,
         newsData,
-        auditData
+        auditData,
+        carierData,
+        buisnessData,
+        aboutUsData
       }
     },
     methods: {
@@ -81,6 +106,33 @@
           })
           .then((data) => {
             this.servicesData = data
+          })
+      },   
+      async getAboutUsData(url) {
+        fetch(`${url}aboutus/`)
+          .then((res) => {
+            return res.json()
+          })
+          .then((data) => {
+            this.aboutUsData = data
+          })
+      },   
+      async getBuisnessData(url) {
+        fetch(`${url}buisness/`)
+          .then((res) => {
+            return res.json()
+          })
+          .then((data) => {
+            this.buisnessData = data
+          })
+      },   
+      async getCarierData(url) {
+        fetch(`${url}carier/`)
+          .then((res) => {
+            return res.json()
+          })
+          .then((data) => {
+            this.carierData = data
           })
       },   
       async getPostsData(url, content_type) {
@@ -127,6 +179,9 @@
       this.getServicesData(this.getBackendUrl())
       this.getPostsData(this.getBackendUrl(), 1)
       this.getPostsData(this.getBackendUrl(), 0)
+      // this.getAboutUsData(this.getBackendUrl())
+      // this.getBuisnessData(this.getBackendUrl())
+      // this.getCarierData(this.getBackendUrl())
     },
     
   }

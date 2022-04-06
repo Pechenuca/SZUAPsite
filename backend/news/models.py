@@ -17,12 +17,17 @@ class Post(models.Model):
 
     title = models.CharField(max_length=200, verbose_name="Заголовок")
     #slug = models.SlugField(max_length=200, unique=True)
-    updated_on = models.DateTimeField(auto_now=True, verbose_name="Дата обнавления")
+    updated_on = models.DateTimeField(
+        auto_now=True, verbose_name="Дата обнавления")
     content = HTMLField(verbose_name="Описание")
-    image = models.ImageField(upload_to='services_section', verbose_name="Изображение")
-    created_on = models.DateTimeField(auto_now_add=True, verbose_name="Дата создания")
-    status = models.IntegerField(choices=STATUS, default=0, verbose_name="Статус Поста")
-    post_type = models.IntegerField(choices=TYPE, default=1, verbose_name="Тип поста")
+    image = models.ImageField(
+        upload_to='services_section', verbose_name="Изображение")
+    created_on = models.DateTimeField(
+        auto_now_add=True, verbose_name="Дата создания")
+    status = models.IntegerField(
+        choices=STATUS, default=0, verbose_name="Статус Поста")
+    post_type = models.IntegerField(
+        choices=TYPE, default=1, verbose_name="Тип поста")
 
     class Meta:
         ordering = ['-created_on']
@@ -32,19 +37,23 @@ class Post(models.Model):
     def __str__(self):
         return f"{self.title} от:{self.created_on} тип:{self.post_type} статус:{self.status}"
 
+
 class HelloPage(models.Model):
     IMAGE_ALIGIN = (
         (0, 'Слева'),
         (1, 'Справа')
     )
 
-    description = HTMLField(max_length=170, verbose_name="Описание")
-    image = models.ImageField(upload_to='hello_section', verbose_name="Изображение")
-    imageAligin = models.FloatField(choices=IMAGE_ALIGIN, default=0, verbose_name="Расположение картинки")
+    description = HTMLField(max_length=300, verbose_name="Описание")
+    image = models.ImageField(
+        upload_to='hello_section', verbose_name="Изображение")
+    imageAligin = models.FloatField(
+        choices=IMAGE_ALIGIN, default=0, verbose_name="Расположение картинки")
 
     def save(self, *args, **kwargs):
         if not self.pk and HelloPage.objects.exists():
-            raise ValidationError('There is can be only one HelloPage instance')
+            raise ValidationError(
+                'There is can be only one HelloPage instance')
         return super(HelloPage, self).save(*args, **kwargs)
 
     class Meta:
@@ -54,14 +63,69 @@ class HelloPage(models.Model):
     def __str__(self):
         return f"ООО “СЗУАП-АУДИТ”"
 
+
 class Service(models.Model):
-    label = models.CharField(max_length=170, verbose_name="Заголовок")
-    image = models.ImageField(upload_to='services_section', verbose_name="Изображение")
-    description = HTMLField(max_length=600, verbose_name="Описание")
-    
+    label = models.CharField(max_length=300, verbose_name="Заголовок")
+    image = models.ImageField(
+        upload_to='services_section', verbose_name="Изображение")
+    description = HTMLField(max_length=1500, verbose_name="Описание")
+
     class Meta:
         verbose_name = "Блок: Услуги"
         verbose_name_plural = "Блоки: Услуги"
-    
     def __str__(self):
         return f"{self.label}"
+
+
+class AboutUs(models.Model):
+    label = models.CharField(max_length=300, verbose_name="Заголовок")
+    description = HTMLField(max_length=700, verbose_name="Описание")
+
+    def save(self, *args, **kwargs):
+        if not self.pk and AboutUs.objects.exists():
+            raise ValidationError(
+                'There is can be only one AboutUs instance')
+        return super(AboutUs, self).save(*args, **kwargs)
+
+    class Meta:
+        verbose_name = "Блок: О нас"
+        verbose_name_plural = "О нас"
+
+    def __str__(self):
+        return f"О нас"
+
+
+class Buisness(models.Model):
+    label = models.CharField(max_length=300, verbose_name="Заголовок")
+    description = HTMLField(max_length=700, verbose_name="Описание")
+    
+    def save(self, *args, **kwargs):
+        if not self.pk and Buisness.objects.exists():
+            raise ValidationError(
+                'There is can be only one Buisness instance')
+        return super(Buisness, self).save(*args, **kwargs)
+
+    class Meta:
+        verbose_name = "Блок: О деятельности"
+        verbose_name_plural = "О деятельности"
+
+    def __str__(self):
+        return f"О деятельности"
+
+
+class Carier(models.Model):
+    label = models.CharField(max_length=300, verbose_name="Заголовок")
+    description = HTMLField(max_length=700, verbose_name="Описание")
+
+    def save(self, *args, **kwargs):
+        if not self.pk and Carier.objects.exists():
+            raise ValidationError(
+                'There is can be only one Carier instance')
+        return super(Carier, self).save(*args, **kwargs)
+
+    class Meta:
+        verbose_name = "Блок: Карьера”"
+        verbose_name_plural = "Карьера"
+
+    def __str__(self):
+        return f"О нас"

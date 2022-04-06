@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from news.models import Post, HelloPage, Service
+from news.models import AboutUs, Buisness, Carier, Post, HelloPage, Service
 
 class PostSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
@@ -33,3 +33,23 @@ class ServiceSerializer(serializers.HyperlinkedModelSerializer):
             'description'
         ]
 
+class AboutUsSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = AboutUs
+        fields = [
+            'description'
+        ]
+
+class BuisnessSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Buisness
+        fields = [
+            'description'
+        ]
+
+class CarierSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Carier
+        fields = [
+            'description'
+        ]

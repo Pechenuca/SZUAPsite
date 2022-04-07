@@ -50,12 +50,6 @@ class HelloPage(models.Model):
     imageAligin = models.FloatField(
         choices=IMAGE_ALIGIN, default=0, verbose_name="Расположение картинки")
 
-    def save(self, *args, **kwargs):
-        if not self.pk and HelloPage.objects.exists():
-            raise ValidationError(
-                'There is can be only one HelloPage instance')
-        return super(HelloPage, self).save(*args, **kwargs)
-
     class Meta:
         verbose_name = "Блок: ООО “СЗУАП-АУДИТ”"
         verbose_name_plural = "Блоки: ООО “СЗУАП-АУДИТ”"
@@ -81,12 +75,6 @@ class AboutUs(models.Model):
     label = models.CharField(max_length=300, verbose_name="Заголовок")
     description = HTMLField(max_length=700, verbose_name="Описание")
 
-    def save(self, *args, **kwargs):
-        if not self.pk and AboutUs.objects.exists():
-            raise ValidationError(
-                'There is can be only one AboutUs instance')
-        return super(AboutUs, self).save(*args, **kwargs)
-
     class Meta:
         verbose_name = "Блок: О нас"
         verbose_name_plural = "О нас"
@@ -98,12 +86,6 @@ class AboutUs(models.Model):
 class Buisness(models.Model):
     label = models.CharField(max_length=300, verbose_name="Заголовок")
     description = HTMLField(max_length=700, verbose_name="Описание")
-    
-    def save(self, *args, **kwargs):
-        if not self.pk and Buisness.objects.exists():
-            raise ValidationError(
-                'There is can be only one Buisness instance')
-        return super(Buisness, self).save(*args, **kwargs)
 
     class Meta:
         verbose_name = "Блок: О деятельности"
@@ -116,12 +98,6 @@ class Buisness(models.Model):
 class Carier(models.Model):
     label = models.CharField(max_length=300, verbose_name="Заголовок")
     description = HTMLField(max_length=700, verbose_name="Описание")
-
-    def save(self, *args, **kwargs):
-        if not self.pk and Carier.objects.exists():
-            raise ValidationError(
-                'There is can be only one Carier instance')
-        return super(Carier, self).save(*args, **kwargs)
 
     class Meta:
         verbose_name = "Блок: Карьера”"

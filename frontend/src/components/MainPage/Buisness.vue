@@ -1,5 +1,5 @@
 <template>
-  <div class="service-block">
+  <div class="buisness-block">
     <img :src="icon"/>
     <p>{{label}}</p>
   </div>
@@ -7,7 +7,7 @@
 
 <script>
   export default {
-    name: "ServiceBlock",
+    name: "buisnessBlock",
     props: {
       icon: {
         type: String,
@@ -22,7 +22,7 @@
 </script>
 
 <style>
-  .service-block {
+  .buisness-block {
     /* margin: 0px 34px; */
     cursor: pointer;
     min-width: 199px;
@@ -35,18 +35,18 @@
     justify-content:center;
   }
 
-  .service-block img {
+  .buisness-block img {
     max-height: 116px;
     max-width: 113px;
     margin: auto;
   }
 
-  .service-block p {
+  .buisness-block p {
     text-align: center;
   }
 
   @media (max-width: 915px) {
-    .service-block {
+    .buisness-block {
         margin: 5px;
         width: 199px;
         height: 195px;

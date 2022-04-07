@@ -18,7 +18,7 @@
           </li>
           
           <li v-on:click="updateSelectedDivId('audit')">
-            <router-link to="/">Аудиторские<br>Отчеты</router-link>
+            <router-link to="/">Раскрытие<br>Информации</router-link>
           </li>
           
           <li v-on:click="updateSelectedDivId('contacts')">
@@ -55,7 +55,7 @@
           </li>
           
           <li v-on:click="updateSelectedDivId('audit');openMobileMenu();">
-            <router-link to="/">Аудиторские<br>Отчеты</router-link>
+            <router-link to="/">Раскрытие<br>Информации</router-link>
           </li>
           
           <li v-on:click="updateSelectedDivId('contacts');openMobileMenu();">

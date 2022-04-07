@@ -11,3 +11,6 @@ class PostAdmin(admin.ModelAdmin):
 admin.site.register(Service)
 admin.site.register(Post)
 admin.site.register(HelloPage)
+admin.site.register(AboutUs)
+admin.site.register(Buisness)
+admin.site.register(Carier)

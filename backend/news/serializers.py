@@ -37,6 +37,7 @@ class AboutUsSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = AboutUs
         fields = [
+            # 'label',
             'description'
         ]
 
@@ -44,6 +45,7 @@ class BuisnessSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Buisness
         fields = [
+            # 'label',
             'description'
         ]
 
@@ -51,5 +53,6 @@ class CarierSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Carier
         fields = [
+            # 'label',
             'description'
         ]

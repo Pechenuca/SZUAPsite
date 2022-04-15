@@ -3,10 +3,12 @@
     <TitleBlock label="Контакты" />
     <div class="contacts-block-wrapper">
       <YandexMapWrapper 
-        lon=37.64
-        lat=55.76
-        zoom=10
+        lat=59.94
+        lon=30.32
+        zoom=12
         class="yandex-map"
+        
+        
       />
     </div>
   </div>

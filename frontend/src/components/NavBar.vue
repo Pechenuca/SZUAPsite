@@ -9,6 +9,10 @@
             <router-link to="/">О нас</router-link>
           </li>
 
+          <li v-on:click="updateSelectedDivId('buisness')">
+            <router-link to="/">О деятельности</router-link>
+          </li>
+
           <li v-on:click="updateSelectedDivId('services')">
             <router-link to="/">Услуги</router-link>
           </li>
@@ -18,9 +22,11 @@
           </li>
           
           <li v-on:click="updateSelectedDivId('audit')">
-            <router-link to="/">Раскрытие<br>Информации</router-link>
+            <router-link to="/">Раскрытие<br>информации</router-link>
           </li>
-          
+          <li v-on:click="updateSelectedDivId('carier')">
+            <router-link to="/">Карьера</router-link>
+          </li>
           <li v-on:click="updateSelectedDivId('contacts')">
             <router-link to="/">Контакты</router-link>
           </li>
@@ -46,6 +52,10 @@
             <router-link to="/">О нас</router-link>
           </li>
 
+          <li v-on:click="updateSelectedDivId('buisness');openMobileMenu();">
+            <router-link to="/">О деятельности</router-link>
+          </li>
+
           <li v-on:click="updateSelectedDivId('services');openMobileMenu();">
             <router-link to="/">Услуги</router-link>
           </li>
@@ -53,11 +63,15 @@
           <li v-on:click="updateSelectedDivId('news');openMobileMenu();">
             <router-link to="/">Новости</router-link>
           </li>
-          
+        
           <li v-on:click="updateSelectedDivId('audit');openMobileMenu();">
-            <router-link to="/">Раскрытие<br>Информации</router-link>
+            <router-link to="/">Раскрытие<br>информации</router-link>
           </li>
-          
+
+          <li v-on:click="updateSelectedDivId('carier');openMobileMenu();">
+            <router-link to="/">Карьера</router-link>
+          </li>
+
           <li v-on:click="updateSelectedDivId('contacts');openMobileMenu();">
             <router-link to="/">Контакты</router-link>
           </li>
@@ -170,7 +184,7 @@
       height: 100%;
     }
 
-    @media (max-width: 1191px) {
+    @media (max-width: 913px) {
       .navbar {
         display: block;
         width: 100%;

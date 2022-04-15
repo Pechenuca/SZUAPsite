@@ -1,55 +1,63 @@
 <template>
-  <div class="buisness-block">
-    <img :src="icon"/>
-    <p>{{label}}</p>
-  </div>
+    <div class="buisness-block-wrapper">
+      <TitleBlock label="О деятельности"/>
+      <div class="buisness-block">
+        <div v-html="description"></div>
+      </div>
+    </div>
 </template>
 
 <script>
+  import TitleBlock from "./TitleBlock.vue";
   export default {
     name: "buisnessBlock",
+    components: {TitleBlock},
     props: {
-      icon: {
+      description: {
         type: String,
-        default: ""
+        default: '',
+        required: true
+        },
       },
-      label: {
-        type: String,
-        default: ""
-      },
-    },
-  }
+    setup() {
+      return {
+      }
+    }
+    }
 </script>
 
 <style>
   .buisness-block {
     /* margin: 0px 34px; */
-    cursor: pointer;
+    /* cursor: pointer; */
     min-width: 199px;
     min-height: 195px;
     background: #FFFFFF;
-    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 15px;
+    /* box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25); */
+    border-radius: 5px;
     display: flex;
     flex-direction: column;
     justify-content:center;
   }
 
-  .buisness-block img {
-    max-height: 116px;
-    max-width: 113px;
-    margin: auto;
+ .buisness-block-wrapper {
+    display: flex;
+    flex-direction:column;
   }
-
+  
   .buisness-block p {
     text-align: center;
   }
 
-  @media (max-width: 915px) {
+  @media (max-width: 375px) {
     .buisness-block {
-        margin: 5px;
-        width: 199px;
-        height: 195px;
+        /* flex-direction: initial;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin: 0;
+        width: 50vh;
+        height: 25vw; */
+        font-size: 12px;
     }
   }
 </style>

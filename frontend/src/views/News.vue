@@ -1,7 +1,7 @@
 <template>
   <div>
-    <TitleBlock label="Последние Новости" v-if="isNews && isShort" />
-    <TitleBlock label="Раскрытие Информации" v-if="!isNews && isShort" />
+    <TitleBlock label="Последние новости" v-if="isNews && isShort" />
+    <TitleBlock label="Раскрытие информации" v-if="!isNews && isShort" />
     <div class="news-short-block-wrapper">
         <NewsShort 
           class="news-short-item"
@@ -15,7 +15,7 @@
           v-if="isShort"
           :type="isNews"
           class="news-short-item read-more"
-          label="Смотреть Всё"
+          label="Смотреть всё"
         />
     </div>
   </div>

@@ -29,12 +29,12 @@
 </script>
 
 <style>
-  .search-input {
+   .search-input {
     border: 0.7px solid black;
     border-radius: 5px;
     width: 130px;
     height: 35px;
-    font-family: AlkesLight;
+    font-family: ZenKakuGothicAntique-Light;
     font-style: normal;
     font-size: 24px;
     line-height: 35px;
@@ -42,13 +42,13 @@
   }
   ::placeholder {
     color: black;
-    font-family: AlkesLight;
+    font-family: ZenKakuGothicAntique-Light;
     font-style: normal;
     font-size: 24px;
     line-height: 35px;
   }
   .search-input:focus {
-    font-family: AlkesLight;
+    font-family: ZenKakuGothicAntique-Light;
     font-style: normal;
     font-size: 24px;
     line-height: 35px;

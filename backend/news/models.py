@@ -72,8 +72,8 @@ class Service(models.Model):
 
 
 class AboutUs(models.Model):
-    label = models.CharField(max_length=300, verbose_name="Заголовок")
-    description = HTMLField(max_length=700, verbose_name="Описание")
+    # label = models.CharField(max_length=300, verbose_name="Заголовок")
+    description = HTMLField(max_length=1000, verbose_name="Описание")
 
     class Meta:
         verbose_name = "Блок: О нас"
@@ -84,8 +84,8 @@ class AboutUs(models.Model):
 
 
 class Buisness(models.Model):
-    label = models.CharField(max_length=300, verbose_name="Заголовок")
-    description = HTMLField(max_length=700, verbose_name="Описание")
+    # label = models.CharField(max_length=300, verbose_name="Заголовок")
+    description = HTMLField(max_length=1000, verbose_name="Описание")
 
     class Meta:
         verbose_name = "Блок: О деятельности"
@@ -96,12 +96,12 @@ class Buisness(models.Model):
 
 
 class Carier(models.Model):
-    label = models.CharField(max_length=300, verbose_name="Заголовок")
-    description = HTMLField(max_length=700, verbose_name="Описание")
+    # label = models.CharField(max_length=300, verbose_name="Заголовок")
+    description = HTMLField(max_length=1000, verbose_name="Описание")
 
     class Meta:
         verbose_name = "Блок: Карьера”"
         verbose_name_plural = "Карьера"
 
     def __str__(self):
-        return f"О нас"
+        return f"Карьера"

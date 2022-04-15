@@ -7,10 +7,13 @@
             <img class="about-image" :src="image" alt="green-umbrella">
           </div>
         </div>
-        <div v-html="description"></div>
+        <div class=description v-html="customizeDescription"></div>
       </div>
       <div class="about-block" v-else>
-        <div v-html="description"></div>
+        <div>
+          <p v-html="customizeDescription">
+          </p>
+        </div>
         <div class="image-with-block">
           <div class="green-block">
             <img class="about-image" :src="image" alt="green-umbrella">
@@ -43,6 +46,12 @@
     setup() {
       return {
       }
+    },
+    computed: {
+      customizeDescription() {
+        return this.description.substring(3, this.description.length - 4)
+      }
+        
     }
   }
 </script>
@@ -52,7 +61,10 @@
     display: flex;
     flex-direction:column;
   }
-  
+
+  .description > p {
+    overflow-wrap: break-word;
+  }
   .about-block {
     display: flex;
     flex-direction: row;
@@ -88,10 +100,21 @@
     line-height: 35px;
   }
 
-  @media (max-width: 915px) {
+  @media (max-width: 375px) {
     .about-block {
         flex-direction: column;
-        justify-content: center;
+        justify-content: center;       
+    }
+    .green-block {
+      width: 85vw;
+      height: 39.27vh;
+    }
+    .description {
+      height: 8.6vw;
+    }
+    .about-image {
+      width: 50vw;
+      height: 23.1vh;
     }
   }
 </style>

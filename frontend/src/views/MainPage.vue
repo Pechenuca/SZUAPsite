@@ -5,19 +5,19 @@
           :isImageAlignLeft="aboutBlockAlign"
           :image="aboutBlockImageUrl"
           id="about"
-        />
+          />       
         <AboutUs
           id="aboutUs"
-          :aboutUsDataProp="aboutUsData"
+          :description="aboutUsDescription"
           />
         <Buisness
           id="buisness"
-          :buisnessDataProp="buisnessData"
+          :description="buisnessDescription"
         />
-        <Services
+       <Services
           id="services"
           :servicesDataProp="servicesData"
-        />
+        /> 
         <News
           id="news"
           :postDataProp="newsData"
@@ -27,38 +27,40 @@
           :isNews="false"
           :postDataProp="auditData"
         />
-        <Contacts 
-          id="contacts"
-        />
         <Carier
           id="carier"
-          :carierDataProp="carierData"
+          :description="carierDescription"
         />
+        <Contacts 
+          id="contacts"
+          
+        /> 
+        
         
     </div>
 </template>
 
 <script>
   import { ref } from 'vue'
+  import smoothscroll from 'smoothscroll-polyfill'
   import ImageTextBlock from "@/views/ImageTextBlock"
+  import AboutUs from '@/components/MainPage/AboutUs.vue'
+  import Buisness from '@/components/MainPage/Buisness.vue'
   import Services from "@/views/Services"
   import News from "@/views/News"
-  import Contacts from "@/views/Contacts"
-  import smoothscroll from 'smoothscroll-polyfill'
-  import AboutUs from '@/components/MainPage/AboutUs.vue'
   import Carier from '@/components/MainPage/Carier.vue'
-  import Buisness from '@/components/MainPage/Buisness.vue'
+  import Contacts from "@/views/Contacts"
 
   export default {
     name: "MainPage",
     components: {
       ImageTextBlock,
+      AboutUs,
+      Buisness,
       Services,
       News,
-      Contacts,
-      AboutUs,
       Carier, 
-      Buisness
+      Contacts,
     },
     setup() {
       const aboutBlockAlign = ref(true)
@@ -67,9 +69,13 @@
       const servicesData = ref([])
       const newsData = ref([])
       const auditData = ref([])
-      const carierData = ref([])
-      const aboutUsData = ref([])
-      const buisnessData = ref([])
+      // const aboutUsLabel = ref('')
+      const aboutUsDescription = ref('')
+      // const buisnessLabel = ref()
+      const buisnessDescription = ref('') 
+      // const carierLabel = ref('')
+      const carierDescription = ref('')
+
       
       return {
         aboutBlockAlign,
@@ -78,9 +84,12 @@
         servicesData,
         newsData,
         auditData,
-        carierData,
-        buisnessData,
-        aboutUsData
+        // aboutUsLabel,
+        aboutUsDescription,
+        // buisnessLabel,
+        buisnessDescription,
+        // carierLabel,
+        carierDescription
       }
     },
     methods: {
@@ -97,6 +106,7 @@
             this.aboutBlockAlign = (jsonData.imageAligin == 0) ? true : false
             this.aboutBlockImageUrl = jsonData.image
             this.aboutBlockDescription = jsonData.description
+            console.log(jsonData)
           })
       },
       async getServicesData(url) {
@@ -114,7 +124,10 @@
             return res.json()
           })
           .then((data) => {
-            this.aboutUsData = data
+            let jsonData = data[0]
+            this.aboutUsLabel = jsonData.label
+            this.aboutUsDescription = jsonData.description
+            
           })
       },   
       async getBuisnessData(url) {
@@ -123,7 +136,9 @@
             return res.json()
           })
           .then((data) => {
-            this.buisnessData = data
+            let jsonData = data[0]
+            this.buisnessDescription = jsonData.description
+            console.log(jsonData)
           })
       },   
       async getCarierData(url) {
@@ -132,7 +147,10 @@
             return res.json()
           })
           .then((data) => {
-            this.carierData = data
+            let jsonData = data[0]
+            // this.carierLabel = jsonData.label
+            this.carierDescription = jsonData.description
+            
           })
       },   
       async getPostsData(url, content_type) {
@@ -179,9 +197,9 @@
       this.getServicesData(this.getBackendUrl())
       this.getPostsData(this.getBackendUrl(), 1)
       this.getPostsData(this.getBackendUrl(), 0)
-      // this.getAboutUsData(this.getBackendUrl())
-      // this.getBuisnessData(this.getBackendUrl())
-      // this.getCarierData(this.getBackendUrl())
+      this.getAboutUsData(this.getBackendUrl())
+      this.getBuisnessData(this.getBackendUrl())
+      this.getCarierData(this.getBackendUrl())
     },
     
   }
@@ -197,6 +215,7 @@
     .main-block div:last-child {
       margin-bottom: 200px;
     }
+    
     @media (max-width: 1191px) {
       .main-block {
         display: block;

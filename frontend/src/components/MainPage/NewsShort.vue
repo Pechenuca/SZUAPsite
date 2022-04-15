@@ -87,4 +87,11 @@
       width: 100%;
     }
   }
+  @media (max-width: 375px) {
+    .news-short h3 {
+      font-size: 14px;
+      
+  }
+    
+  }
 </style>

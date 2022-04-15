@@ -7,7 +7,6 @@
 
 <script>
   import { ref } from 'vue'
-
   export default {
     name: "YandexMapWrapper",
     props: {
@@ -32,7 +31,6 @@
         props.lat, 
         props.lon
       ]
-
       rzoom.value = [props.zoom]
       return {
         latlon,
@@ -52,6 +50,13 @@
           }, {
               searchControlProvider: 'yandex#search'
           })
+          .geoObjects
+            .add(new ymaps.Placemark([59.963940, 30.311233], {
+              balloonContent: 'Мы здесь!'
+              }, {
+                  preset: 'islands#icon',
+                  iconColor: '#3caa3c'
+            }))
         })
       }
     },
@@ -70,7 +75,6 @@
     height: 650px;
     width: 1050px;
   }
-
   #yandex-map {
     width: 100%;
     height: 100%;

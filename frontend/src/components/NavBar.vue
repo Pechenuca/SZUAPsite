@@ -193,7 +193,7 @@
       }
 
       .navbar.open {
-        height: 510px;
+        height: 65vh;
       }
 
       .navbar-mobile-menu.open {

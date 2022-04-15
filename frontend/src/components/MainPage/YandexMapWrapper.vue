@@ -52,10 +52,10 @@
           })
           .geoObjects
             .add(new ymaps.Placemark([59.963940, 30.311233], {
-              balloonContent: 'цвет <strong>воды пляжа бонди</strong>'
+              balloonContent: 'Мы здесь!'
               }, {
                   preset: 'islands#icon',
-                  iconColor: '#0095b6'
+                  iconColor: '#3caa3c'
             }))
         })
       }

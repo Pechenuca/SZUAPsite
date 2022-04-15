@@ -7,7 +7,6 @@
 
 <script>
   import { ref } from 'vue'
-
   export default {
     name: "YandexMapWrapper",
     props: {
@@ -27,11 +26,11 @@
     setup(props) {
       let latlon = ref([])
       let rzoom = ref([])
+      
       latlon.value = [
         props.lat, 
         props.lon
       ]
-
       rzoom.value = [props.zoom]
       return {
         latlon,
@@ -51,25 +50,16 @@
           }, {
               searchControlProvider: 'yandex#search'
           })
-        
-        let myGeoObject = new ymaps.GeoObject({
-          geometry: {
-            type:"Point",
-            coordinates: [59.96, 30.31],
-            iconColor: "#3caa3c"
-          },
-          properties: {
-            iconContent: "Мы здесь!"
-          }
-        }, {
-          preset: 'islands#blackStretchyIcon',
-          draggable: false
-        },) 
-          }) 
-          ymaps.GeoObjects        
-            .add(myGeoObject)
-          },
-     },
+          .geoObjects
+            .add(new ymaps.Placemark([59.963940, 30.311233], {
+              balloonContent: 'цвет <strong>воды пляжа бонди</strong>'
+              }, {
+                  preset: 'islands#icon',
+                  iconColor: '#0095b6'
+            }))
+        })
+      }
+    },
     beforeMount () {
       if(this.$store.getters.isMapLoaded == false) {
        this.loadMap() 
@@ -85,18 +75,8 @@
     height: 650px;
     width: 1050px;
   }
-
   #yandex-map {
     width: 100%;
     height: 100%;
-  }
-  @media (max-width: 1337px) {
-    .yandex-map {
-      margin: 5px;
-      width: 85vw;
-      height: 50vh;
-    
-    }
-    
   }
 </style>

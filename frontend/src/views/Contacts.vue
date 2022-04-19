@@ -1,6 +1,9 @@
 <template>
   <div>
     <TitleBlock label="Контакты" />
+    <div class="contacts-block">
+        <div v-html="description"></div>
+      </div>
     <div class="contacts-block-wrapper">
       <YandexMapWrapper 
         lat=59.94
@@ -21,6 +24,13 @@
   export default {
     name: "Contacts",
     components: {TitleBlock, YandexMapWrapper},
+    props: {
+      description: {
+        type: String,
+        default: '',
+        required: true
+        },
+      },
     setup() {
       return {
       }
@@ -29,6 +39,17 @@
 </script>
 
 <style>
+.contacts-block {
+
+    min-width: 199px;
+    min-height: 195px;
+    background: #FFFFFF;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    font-size: 20px;
+  }
   .contacts-block-wrapper {
     display: flex;
     flex-direction: row;

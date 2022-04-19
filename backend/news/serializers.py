@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from news.models import AboutUs, Buisness, Carier, Post, HelloPage, Service
+from news.models import AboutUs, Buisness, Carier, Contacts, Post, HelloPage, Service
 
 class PostSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
@@ -54,5 +54,11 @@ class CarierSerializer(serializers.HyperlinkedModelSerializer):
         model = Carier
         fields = [
             # 'label',
+            'description'
+        ]
+class ContactsSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Contacts
+        fields = [
             'description'
         ]

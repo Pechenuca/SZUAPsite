@@ -45,6 +45,7 @@
     display: flex;
     flex-direction: column;
     justify-content:center;
+    font-size: 20px;
   }
   .aboutUs-block-wrapper {
     display: flex;

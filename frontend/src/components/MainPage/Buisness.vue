@@ -38,6 +38,7 @@
     display: flex;
     flex-direction: column;
     justify-content:center;
+    font-size: 20px;
   }
 
  .buisness-block-wrapper {

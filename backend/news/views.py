@@ -1,6 +1,6 @@
 from rest_framework import viewsets, filters
-from news.models import AboutUs, Buisness, Carier, Post, HelloPage, Service
-from news.serializers import AboutUsSerializer, BuisnessSerializer, CarierSerializer, PostSerializer, HelloPageSerializer, ServiceSerializer
+from news.models import AboutUs, Buisness, Carier, Contacts, Post, HelloPage, Service
+from news.serializers import AboutUsSerializer, BuisnessSerializer, CarierSerializer, ContactsSerializer, PostSerializer, HelloPageSerializer, ServiceSerializer
 
 class ContentViewSet(viewsets.ModelViewSet):
     queryset = Post.objects.all().filter(status=1).order_by('-created_on')
@@ -46,3 +46,7 @@ class BuisnessViewSet(viewsets.ModelViewSet):
 class CarierViewSet(viewsets.ModelViewSet):
     queryset = Carier.objects.all()
     serializer_class = CarierSerializer
+
+class ContactsViewSet(viewsets.ModelViewSet):
+    queryset = Contacts.objects.all()
+    serializer_class = ContactsSerializer

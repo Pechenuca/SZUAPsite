@@ -11,8 +11,8 @@ class Post(models.Model):
     )
 
     TYPE = (
-        (0, 'Аудиторский отчет'),
-        (1, 'Новость')
+        (1, 'Аудиторский отчет'),
+        (0, 'Новость')
     )
 
     title = models.CharField(max_length=200, verbose_name="Заголовок")
@@ -73,7 +73,7 @@ class Service(models.Model):
 
 class AboutUs(models.Model):
     # label = models.CharField(max_length=300, verbose_name="Заголовок")
-    description = HTMLField(max_length=1000, verbose_name="Описание")
+    description = HTMLField(max_length=1500, verbose_name="Описание")
 
     class Meta:
         verbose_name = "Блок: О нас"
@@ -85,7 +85,7 @@ class AboutUs(models.Model):
 
 class Buisness(models.Model):
     # label = models.CharField(max_length=300, verbose_name="Заголовок")
-    description = HTMLField(max_length=1000, verbose_name="Описание")
+    description = HTMLField(max_length=1500, verbose_name="Описание")
 
     class Meta:
         verbose_name = "Блок: О деятельности"
@@ -97,7 +97,7 @@ class Buisness(models.Model):
 
 class Carier(models.Model):
     # label = models.CharField(max_length=300, verbose_name="Заголовок")
-    description = HTMLField(max_length=1000, verbose_name="Описание")
+    description = HTMLField(max_length=1500, verbose_name="Описание")
 
     class Meta:
         verbose_name = "Блок: Карьера”"
@@ -105,3 +105,12 @@ class Carier(models.Model):
 
     def __str__(self):
         return f"Карьера"
+
+class Contacts(models.Model):
+    description = HTMLField(max_length=1500, verbose_name="Описание")
+    class Meta:
+        verbose_name = "Блок: Контакты"
+        verbose_name_plural = "Контакты"
+
+    def __str__(self):
+        return f"Контакты"

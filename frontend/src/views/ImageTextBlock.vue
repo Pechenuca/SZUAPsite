@@ -49,7 +49,7 @@
     },
     computed: {
       customizeDescription() {
-        return this.description.substring(3, this.description.length - 4)
+        return this.description.substring(29, this.description.length - 19)
       }
         
     }
@@ -83,6 +83,7 @@
   }
   
   .green-block {
+    display:none;
     margin: 20px;
     z-index: 1;
     width: 417px;
@@ -103,7 +104,8 @@
   @media (max-width: 375px) {
     .about-block {
         flex-direction: column;
-        justify-content: center;       
+        justify-content: center;  
+        font-size: 20px;     
     }
     .green-block {
       width: 85vw;
@@ -111,6 +113,7 @@
     }
     .description {
       height: 8.6vw;
+      font-size: 20px;
     }
     .about-image {
       width: 50vw;

@@ -33,7 +33,7 @@
         />
         <Contacts 
           id="contacts"
-          
+          :description="contactsDescription"
         /> 
         
         
@@ -49,7 +49,7 @@
   import Services from "@/views/Services"
   import News from "@/views/News"
   import Carier from '@/components/MainPage/Carier.vue'
-  import Contacts from "@/views/Contacts"
+  import Contacts from "@/views/Contacts.vue"
 
   export default {
     name: "MainPage",
@@ -75,6 +75,7 @@
       const buisnessDescription = ref('') 
       // const carierLabel = ref('')
       const carierDescription = ref('')
+      const contactsDescription = ref('')
 
       
       return {
@@ -89,7 +90,8 @@
         // buisnessLabel,
         buisnessDescription,
         // carierLabel,
-        carierDescription
+        carierDescription,
+        contactsDescription
       }
     },
     methods: {
@@ -153,6 +155,17 @@
             
           })
       },   
+    async getContactsData(url) {
+        fetch(`${url}contacts/`)
+          .then((res) => {
+            return res.json()
+          })
+          .then((data) => {
+            let jsonData = data[0]
+            this.contactsDescription = jsonData.description
+            console.log(this.contactsDescription)
+          })
+      },
       async getPostsData(url, content_type) {
         fetch(`${url}content/?post_type=${content_type}&short=1`)
           .then((res) => {
@@ -200,6 +213,7 @@
       this.getAboutUsData(this.getBackendUrl())
       this.getBuisnessData(this.getBackendUrl())
       this.getCarierData(this.getBackendUrl())
+      this.getContactsData(this.getBackendUrl())
     },
     
   }

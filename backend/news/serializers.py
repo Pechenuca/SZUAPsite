@@ -12,7 +12,8 @@ class PostSerializer(serializers.HyperlinkedModelSerializer):
             'created_on', 
             'status',
             'image',
-            'post_type'
+            'post_type',
+            'file'
         ]
 
 class HelloPageSerializer(serializers.HyperlinkedModelSerializer):

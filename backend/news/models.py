@@ -29,6 +29,8 @@ class Post(models.Model):
     post_type = models.IntegerField(
         choices=TYPE, default=1, verbose_name="Тип поста")
 
+    file = models.FileField(upload_to='services_section', default=None, blank=True, verbose_name="Документы")
+
     class Meta:
         ordering = ['-created_on']
         verbose_name = "Блок: Пост (Новость, Аудиторский отчет)"

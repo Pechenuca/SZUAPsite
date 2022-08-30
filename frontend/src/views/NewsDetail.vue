@@ -9,6 +9,7 @@
         <h2>{{new Date(contentData.created_on).toLocaleDateString('ru-ru')}}</h2>
       </div>
       <p v-html="contentData.content"></p>
+      <p><a :href="contentData.file">Документы</a></p>
     </div>
   </div>
 </template>
